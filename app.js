@@ -86,6 +86,12 @@ if (game.gyms[i].difficulty < 3) {
 }
 console.log(game.gyms);
 
+// game.gyms.forEach((gym) => {
+//   if(gym.difficulty < 3){
+//     gym.completed = true
+//   }
+// })
+
 /*
 Exercise 8
 1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
@@ -156,6 +162,10 @@ Solve Exercise 11 here:
 // }
 // game.catchPokemon('Bulbasaur')
 // console.log(game.party)
+
+game.catchPokemon = function(pokemonObj) {
+  this.party.push(pokemonObj)
+}
 
 /*
 Exercise 12
@@ -239,6 +249,23 @@ Solve Exercise 14 here:
 // game.gymStatus()
 // console.log(gymTally)
 
+game.gymStatus = function(){
+  const gymTally = {
+    completed: 0,
+    incomplete: 0
+  }
+
+  this.gyms.forEach((gym) => {
+    if(gym.completed){
+      gymTally.completed += 1
+    } else {
+      gymTally.incomplete += 1
+    }
+  })
+  console.log(gymTally)
+}
+
+game.gymStatus()
 /*
 Exercise 15
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
